@@ -1,0 +1,6 @@
+docker network create mynetwork
+taoj external network
+
+Received message: {"User": "0", "Card": "0", "Year": "2002", "Month": "9", "Day": "4", "Time": "05:51", "Amount": "$93.84", "Use Chip": "Swipe Transaction", "Merchant Name": "-727612092139916043", "Merchant City": "Monterey Park", "Merchant State": "CA", "Zip": "91754.0", "MCC": "5411", "Errors?": "", "Is Fraud?": "No"}
+Received message: {"User": "0", "Card": "0", "Year": "2002", "Month": "9", "Day": "4", "Time": "06:09", "Amount": "$123.50", "Use Chip": "Swipe Transaction", "Merchant Name": "-727612092139916043", "Merchant City": "Monterey Park", "Merchant State": "CA", "Zip": "91754.0", "MCC": "5411", "Errors?": "", "Is Fraud?": "No"}
+Received message: {"User": "0", "Card": "0", "Year": "2002", "Month": "9", "Day": "5", "Time": "06:14", "Amount": "$61.72", "Use Chip": "Swipe Transaction", "Merchant Name": "-727612092139916043", "Merchant City": "Monterey Park", "Merchant State": "CA", "Zip": "91754.0", "MCC": "5411", "Errors?": "", "Is Fraud?": "No"

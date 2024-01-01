@@ -1,0 +1,71 @@
+1. 
+start spark
+  docker exec -it spark-master bash
+
+  /spark/bin/pyspark --master spark://spark-master:7077
+
+2. jar to connect spark wihh kafka:
+ spark-sql_2.12-3.0.0.jar
+
+3. copy file pyspark vao spark worker
+docker cp -L read_kafka.py spark-master:/opt/anyfilename.py
+4. run file pyspark trong spark worker
+///ok 
+docker-compose exec spark-master /spark/bin/spark-submit --master spark://spark-master:7077 /opt/anyfilename.py
+
+//test lần 2
+docker cp -L read_kafka.py spark-master:/opt/py-spark/test2.py
+docker-compose exec spark-master /spark/bin/spark-submit --master spark://spark-master:7077 --packages  spark-sql_2.12-3.0.0.jar /opt/py-spark/test2.py
+
+
+docker-compose exec spark-master /spark/bin/spark-submit --master spark://spark-master:7077 --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.0.0 /opt/py-spark/test2.py
+
+docker-compose exec spark-master /spark/bin/spark-submit --master spark://spark-master:7077 --packages org.apache.spark:spark-sql_2.12:3.0.0 /opt/py-spark/test2.py
+
+spark-sql-kafka-0-10_2.12
+
+//test lan 3
+
+docker cp -L test2.py spark-master:/opt/spark-apps/py-spark/test2.py
+docker-compose exec spark-master /opt/spark/bin/spark-submit --master spark://spark-master:7077 --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.1.2 /opt/spark-apps/py-spark/test2.py
+
+docker-compose exec spark-master /opt/spark/bin/spark-submit --master spark://spark-master:7077 --jars spark-spark-sql_2.12-3.1.2.jar /opt/spark-apps/py-spark/test2.py
+
+docker-compose exec spark-master /opt/spark/bin/spark-submit --master spark://spark-master:7077 /opt/spark-apps/py-spark/test2.py
+
+
+--main
+
+
+
+
+
+
+
+
+
+
+1. Tạo file python
+pyspark
+2. copy vào volume docker 
+3. Thực thi chạy test
+4. Khi test, ok
+
+/opt/spark/bin/spark-submit --master spark://spark-master:7077 \
+--packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.1.2 \
+--driver-memory 1G \
+--executor-memory 1G \
+/opt/spark-apps/main.py
+
+hoặc
+
+docker exec <container_id_or_name> /opt/spark/bin/spark-submit --master spark://spark-master:7077 \
+--packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.1.2 \
+--driver-memory 1G \
+--executor-memory 1G \
+/opt/spark-apps/main.py
+
+5. Thêm đoạn lệnh chạy, copy vào file.sh
+#!/bin/bash --> chạy bằng bash
+6. Tạo một file .sh chính chạy các file .sh phụ
+
